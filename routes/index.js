@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var request = require("request");
 
-
+const dotenv = require('dotenv');
+dotenv.config();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -12,8 +13,8 @@ router.get('/noti',(req,res)=>{
      
     "url": "https://courses.uit.edu.vn/login/index.php",
     "form":{
-      username:"",//env variables update sau
-      password:""//env variables update sau
+      username:"${process.env.username}",//env variables update sau
+      password:"${process.env.password}"//env variables update sau
     }
     })
  
@@ -37,8 +38,8 @@ router.get('/p',(req,res)=>{
       
   },
     form: {
-     ' name': 'xxx',
-'pass': 'xxx'
+     ' name': '${process.env.username}',
+'pass': '${process.env.password}'
 
     }
   }, function(error, response, body) {
