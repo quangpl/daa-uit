@@ -12,8 +12,8 @@ router.get('/noti',(req,res)=>{
      
     "url": "https://courses.uit.edu.vn/login/index.php",
     "form":{
-      username:"17520950",
-      password:"1400430133"
+      username:"",//env variables update sau
+      password:""//env variables update sau
     }
     })
  
@@ -41,6 +41,31 @@ router.get('/p',(req,res)=>{
 'pass': '1400430133'
 
     }
+  }, function(error, response, body) {
+    if(error)
+    {
+      console.log('ERROR:'+error);
+      return false;
+    }
+    console.log(body);
+    console.log(res.statusCode);
+    res.write(body);
+    console.log(JSON.stringify(body));
+  });
+});
+router.get('/asus',(req,res)=>{
+  
+  request({
+    uri: "https://www.asus.com/vn/Phone/ZenFone-Max-Pro-ZB602KL/HelpDesk_BIOS/",
+ 
+    method: "GET",
+    headers: {
+      'Accept': 'application/json',
+      'Accept-Charset': 'utf-8',
+      'Content-Type':' application/x-www-form-urlencoded'
+      
+  },
+    
   }, function(error, response, body) {
     if(error)
     {
