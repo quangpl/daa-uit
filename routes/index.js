@@ -37,8 +37,8 @@ router.get('/p',(req,res)=>{
       
   },
     form: {
-     ' name': '17520950',
-'pass': '1400430133'
+     ' name': 'xxx',
+'pass': 'xxx'
 
     }
   }, function(error, response, body) {
